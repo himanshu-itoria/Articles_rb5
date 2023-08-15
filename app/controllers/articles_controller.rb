@@ -9,16 +9,21 @@ class ArticlesController < ApplicationController
     end
 
     def new
-        @article1 = Article.new
+        @article = Article.new
     end
 
     def create
-        @article1 = Article.new(params.require(:article).permit(:title,:description))
-        @article1.save
+        @article = Article.new(params.require(:article).permit(:title,:description))
+    if  @article.save
+        flash[:notice] = "Article was created successfully"
+         redirect_to @article
         # redirect_back(fallback_location: @article)
         # redirect_to action:show,id:
-        redirect_to @article1
+        # redirect_to @article
+    else
+        render 'new'
+
     end
 
-
+end
 end
