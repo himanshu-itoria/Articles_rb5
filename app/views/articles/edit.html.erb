@@ -1,5 +1,5 @@
 <% if @article.errors.any? %>
-<h2>The following errors blocked new article creatiom</h2>
+<h2>The following errors blocked new article update</h2>
 
 <ul>
 <% @article.errors.full_messages.each do |msg| %>
@@ -7,7 +7,7 @@
     <% end %>
 </ul>
 <% end %>
-<h1>Create a new article</h1>
+<h1>Edit</h1>
  
 
 
@@ -19,4 +19,9 @@
     <%= submit_tag 'Submit' %>
   <% end %>
 
-  
+  <p>
+    <%= link_to 'Articles Listings' , articles_path%>
+  </p>
+  <p>
+  <%= link_to 'Show this article' , article_path(@article)%>
+</p>
